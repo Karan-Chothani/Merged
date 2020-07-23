@@ -31,9 +31,7 @@ class NotificationTab3 extends State<NotificationTab2> {
   }
 
   bool myInterceptor(bool stopDefaultButtonEvent) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context)=>HomePage())
-    );
+    Navigator.of(context).popUntil(ModalRoute.withName('/Homepage'));
     return true;
   }
 
@@ -62,7 +60,9 @@ class NotificationTab3 extends State<NotificationTab2> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

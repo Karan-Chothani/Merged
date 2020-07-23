@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_merged/preview.dart';
+import 'SideMenu.dart';
 import 'TopButtons/EyeScreen.dart';
 import 'TopButtons/NoseScreen.dart';
 import 'TopButtons/LipsScreen.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:ui';
-import 'SideMenu.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:matrix_gesture_detector/matrix_gesture_detector.dart';
 
@@ -80,7 +80,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final _screenSize = MediaQuery.of(context).size;
-    var bntin;
     return Scaffold(
       drawer: SideMenu(),
       appBar: AppBar(

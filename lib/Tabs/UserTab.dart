@@ -31,9 +31,7 @@ class UserTab3 extends State<UserTab2> {
   }
 
   bool myInterceptor(bool stopDefaultButtonEvent) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context)=>HomePage())
-    );
+    Navigator.of(context).popUntil(ModalRoute.withName('/Homepage'));
     return true;
   }
 
@@ -62,7 +60,7 @@ class UserTab3 extends State<UserTab2> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.of(context).popUntil(ModalRoute.withName('/Homepage'));
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

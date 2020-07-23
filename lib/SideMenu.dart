@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'Tabs/ListTab.dart';
@@ -5,7 +7,12 @@ import 'Tabs/NotificationTab.dart';
 import 'Tabs/UserTab.dart';
 import 'HomePage.dart';
 
-class SideMenu extends StatelessWidget {
+class SideMenu extends StatefulWidget {
+  @override
+  _SideMenuState createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -18,7 +25,7 @@ class SideMenu extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             decoration: BoxDecoration(
-                //color: Colors.green,
+              //color: Colors.green,
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('images/wal.jpg'))),
@@ -53,10 +60,45 @@ class SideMenu extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
-            onTap: () => {},
+            onTap: () => {
+              print("In EXit"),
+              exitalert,
+              new Container(
+                child: GestureDetector(
+                  child: AlertDialog(
+                    title: Text("LOGOUT"),
+                    content: Text("Are Sure ??"),
+                    actions: <Widget>[
+                      FlatButton(onPressed: (){exit(0);}, child: Text("YES")),
+                      FlatButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));}, child: Text("NO"))
+                    ],
+                  ),
+                ),
+              ),
+            },
           ),
         ],
       ),
     );
   }
+
+  void exitalert() {
+    print("In EXIt");
+    setState(() {
+
+    });
+    new Container(
+      child: GestureDetector(
+        child: AlertDialog(
+          title: Text("LOGOUT"),
+          content: Text("Are Sure ??"),
+          actions: <Widget>[
+            FlatButton(onPressed: (){exit(0);}, child: Text("YES")),
+            FlatButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));}, child: Text("NO"))
+          ],
+        ),
+      ),
+    );
+  }
 }
+
